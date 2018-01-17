@@ -6,6 +6,7 @@ declare interface ScrollJackerProps {
   injectChildren? : {};
   stickyOffset? : number;
   style?: any;
+  className?: string;
 }
 
 declare interface ScrollJackerState {

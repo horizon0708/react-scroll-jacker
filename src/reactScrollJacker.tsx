@@ -13,12 +13,17 @@ export default class ScrollJacker extends React.Component<
       currentPage: 0
     };
   }
+  
   private container: HTMLElement;
-  private rectHeight(): number {
-    return (
-      this.container.getBoundingClientRect().bottom -
-      this.container.getBoundingClientRect().top
-    );
+  // private rectHeight(): number {
+  //   return (
+  //     this.container.getBoundingClientRect().bottom -
+  //     this.container.getBoundingClientRect().top
+  //   );
+  // }
+
+  static defaultProps = {
+    scrollSensitivity: 5
   }
 
   componentDidMount() {
@@ -53,8 +58,8 @@ export default class ScrollJacker extends React.Component<
     if (childrenCount < 2 || this.container.getBoundingClientRect().top > 0) {
       return 0;
     }
-    const offset = this.rectHeight() / childrenCount;
-    const scrollAmountPerChild = (this.rectHeight() - offset) / childrenCount;
+    // const offset = this.rectHeight() / childrenCount;
+    const scrollAmountPerChild = 200 * this.props.scrollSensitivity / childrenCount;
     const progress = Math.abs(this.container.getBoundingClientRect().top);
     const output = Math.floor(progress / scrollAmountPerChild);
     if (output > childrenCount - 1) {
@@ -91,7 +96,7 @@ export default class ScrollJacker extends React.Component<
         ref={container => {
           this.container = container;
         }}
-        style={{ ...this.props.style  ,height: `${this.props.height}px` }}
+        style={{ ...this.props.style  ,height: `${200*this.props.scrollSensitivity}px` }}
       >
         <div id="STC-sticky-child">
           {this.renderChild()}
