@@ -23,16 +23,16 @@ Demo coming soon.
 
 ## Props
 
-#### height **(number: required )** 
+#### height *(number: required )*
 This sets the total amount of pixel that needs to be scrolled before the hijacker lets your precious scroll go. 
 
-This is divided by the number of the React.Children elements and used to create the boundary between the elements. For example, let's say the height is 400 and there are 4 React.Children. From 0px to 99px, it will show the first child, 100px to 199px will show the second child and so on.
+This is divided by the number of the React.Children elements and used to create boundaries between the elements. For example, let's say the height is 400 and there are 4 _React.Children_. From 0px to 99px, it will show the first child, 100px to 199px will show the second child and so on.
 
-#### stickyOffset *(number: Optional)*
+#### stickyOffset *(number: optional)*
 this sets the offset of the stickied element from the top of the viewbox.
 
-#### injectChildren *(Optional)*
-This will inject the React.Children with a prop({ currentPage: number }).
+#### injectChildren *(optional)*
+This will inject the _React.Children_ with a prop({ currentPage: number }).
 ```
   <ReactScrollJacker injectChildren height={1000}>
     <ReactElementOne> Help! </ReactElementOne>  // ReactElementOne will have get a prop  _currentPage_. 

@@ -22,5 +22,10 @@
   "devDependencies": {
     "@types/react": "^16.0.34",
     "jest": "^22.1.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/horizon0708/react-scroll-jacker.git"
+  },
+  "homepage": "https://github.com/horizon0708/react-scroll-jacker"
 }
