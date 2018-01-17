@@ -3,27 +3,34 @@ React Scroll Jacker is a ruthless component that takes no ransom for his hijacke
 
 The component lets you use scrolling to transition between elements for a set amount of pixels, instead of using scroll to scroll the page like a sane person. Under the hood, it takes React Children and shows them one by one, depending on the scrolled distance.
 
-Demo coming soon.
+[Demo](https://scroller-jacker-demo.herokuapp.com/)
 
 ## Usage
-```
-  import React from "react";
-  import ReactScrollJacker from 'react-scroll-jacker;
 
-  const randomSFC = () => {
-    return <ReactScrollJacker height={1000}>
-      <ReactElementOne> Help! </ReactElementOne> 
-      <ReactElementTwo> Our scroll has been hijacked! </ReactElementTwo> 
-      <ReactElementThree> Won't somebody please think of the UX ? </ReactElementThree>
+1. Add Elements to to ```ReactScrollJacker```.
+2. set the height of ```ReactScrollerJacker``` to the sum of all its children.
+3. enjoy.
+
+```
+import React from "react";
+import ReactScrollJacker from 'react-scroll-jacker;
+
+const ScrollerJackerTest = props => {
+  return <ReactScrollJacker height={2400}>  {/* <-- this should be the sum of all children's height! */}
+      <ReactElement color="red"> Help! </ReactElement> 
+      <ReactElement color="blue"> Our scroll has been hijacked! </ReactElement> 
+      <ReactElement color="purple"> Won't somebody please think of the UX ? </ReactElement>
+      <ReactElement color="green"> UX?? Where we are going, we don't need UX. </ReactElement>
       
-      // you can add any number of ReactElements in here !!
+      {/* you can add any number of ReactElements in here !! */}
     </ReactScrollJacker>
-  };
+};
 ```
 
 ## Props
 
 #### height *(number: required )*
+**Recommended to be the total sum of all _React.Children_'s height for a smooth-scroll jacking experience**
 This sets the total amount of pixel that needs to be scrolled before the hijacker lets your precious scroll go. 
 
 This is divided by the number of the React.Children elements and used to create boundaries between the elements. For example, let's say the height is 400 and there are 4 _React.Children_. From 0px to 99px, it will show the first child, 100px to 199px will show the second child and so on.
@@ -44,8 +51,8 @@ This component is a regular div. _style_ and _className_ props are exposed. Styl
 
 ## Todo
 - [] Add Tests.
-- [] Add Demo.
-- [] Add option to pass down inject and not hide the children automatically.
+- [x] Add Demo.
+- [] Add an option to pass down inject and not hide the children automatically.
 - [] apologise to the UX designers and users.
 
 
