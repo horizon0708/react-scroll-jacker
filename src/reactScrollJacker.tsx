@@ -12,27 +12,23 @@ export default class ScrollJacker extends React.Component<
       currentPage: 0
     };
   }
-  private increment: number = 100;
+  private increment: number = 200;
   private height: number = 500;
   private container: HTMLElement;
-  // private rectHeight(): number {
-  //   return (
-  //     this.container.getBoundingClientRect().bottom -
-  //     this.container.getBoundingClientRect().top
-  //   );
-  // }
 
   static defaultProps = {
     scrollSensitivity: 5
   }
 
   componentDidMount() {
-    const { children, stickyOffset } = this.props;
+    let { children, stickyOffset, scrollSensitivity } = this.props;
+    scrollSensitivity = scrollSensitivity < 1 ? 1 : scrollSensitivity;
+    scrollSensitivity = scrollSensitivity > 9 ? 9 : scrollSensitivity;
     if (children) {
       this.setState({
         childrenCount: React.Children.count(children)
       });
-      this.increment = this.increment * this.props.scrollSensitivity;
+      this.increment = this.increment * (10-this.props.scrollSensitivity);
       this.height = this.increment * React.Children.count(children);
     }
     if (window) {
@@ -41,7 +37,6 @@ export default class ScrollJacker extends React.Component<
         stickyBitStickyOffset: stickyOffset || 0
       });
     }
-  
   }
 
   componentWillUnmount() {
@@ -98,7 +93,7 @@ export default class ScrollJacker extends React.Component<
         ref={container => {
           this.container = container;
         }}
-        style={{ ...this.props.style  ,height: `${this.height}px` }}
+        style={{ ...this.props.style  ,height: `${this.height + this.increment}px` }}
       >
         <div id="STC-sticky-child">
           {this.renderChild()}

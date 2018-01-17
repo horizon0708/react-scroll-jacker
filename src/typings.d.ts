@@ -2,7 +2,7 @@ declare module 'stickybits';
 
 declare interface ScrollJackerProps {
   children?: any;
-  height: number;
+  scrollSensitivity?: number;
   injectChildren? : {};
   stickyOffset? : number;
   style?: any;
