@@ -23,7 +23,7 @@ $ npm install --save react-scroll-jacker
 import ReactScrollJacker from "react-scroll-jacker";
 
 const ScrollerJackerTest = props => {
-  return <ReactScrollJacker height={2400}>  {/* <-- this should be the sum of all children's height! */}
+  return <ReactScrollJacker> 
       <ReactElement color="red"> Help! </ReactElement> 
       <ReactElement color="blue"> Our scroll has been hijacked! </ReactElement> 
       <ReactElement color="purple"> Wont somebody please think of the UX ? </ReactElement>
@@ -58,7 +58,6 @@ This component is a regular div. _style_ and _className_ props are exposed. Styl
 
 ## Under the hood
 This component uses [stickybits](https://github.com/dollarshaveclub/stickybits) to make child elements sticky. Stickybits uses css property sticky as a default and provides fallback via JS for browsers that are not supported. 
-
 
 ## Todo
 - [ ] Add Tests & webpack.
