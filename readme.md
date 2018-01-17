@@ -20,7 +20,7 @@ const ScrollerJackerTest = props => {
       <ReactElement color="red"> Help! </ReactElement> 
       <ReactElement color="blue"> Our scroll has been hijacked! </ReactElement> 
       <ReactElement color="purple"> Wont somebody please think of the UX ? </ReactElement>
-      <ReactElement color="green"> UX?? Where we are going, we don't need UX. </ReactElement>
+      <ReactElement color="green"> UX?? Where we are going, we dont need UX. </ReactElement>
       
       {/* you can add any number of ReactElements in here !! */}
     </ReactScrollJacker>
