@@ -1,7 +1,6 @@
 import * as React from "react";
 import stickybits from "stickybits";
 
-
 export default class ScrollJacker extends React.Component<
   ScrollJackerProps,
   ScrollJackerState
@@ -13,7 +12,8 @@ export default class ScrollJacker extends React.Component<
       currentPage: 0
     };
   }
-  
+  private increment: number = 100;
+  private height: number = 500;
   private container: HTMLElement;
   // private rectHeight(): number {
   //   return (
@@ -32,6 +32,8 @@ export default class ScrollJacker extends React.Component<
       this.setState({
         childrenCount: React.Children.count(children)
       });
+      this.increment = this.increment * this.props.scrollSensitivity;
+      this.height = this.increment * React.Children.count(children);
     }
     if (window) {
       window.addEventListener("scroll", this.updateCurrentPage);
@@ -39,6 +41,7 @@ export default class ScrollJacker extends React.Component<
         stickyBitStickyOffset: stickyOffset || 0
       });
     }
+  
   }
 
   componentWillUnmount() {
@@ -58,10 +61,9 @@ export default class ScrollJacker extends React.Component<
     if (childrenCount < 2 || this.container.getBoundingClientRect().top > 0) {
       return 0;
     }
-    // const offset = this.rectHeight() / childrenCount;
-    const scrollAmountPerChild = 200 * this.props.scrollSensitivity / childrenCount;
+
     const progress = Math.abs(this.container.getBoundingClientRect().top);
-    const output = Math.floor(progress / scrollAmountPerChild);
+    const output = Math.floor(progress / this.increment);
     if (output > childrenCount - 1) {
       return childrenCount - 1;
     }
@@ -96,7 +98,7 @@ export default class ScrollJacker extends React.Component<
         ref={container => {
           this.container = container;
         }}
-        style={{ ...this.props.style  ,height: `${200*this.props.scrollSensitivity}px` }}
+        style={{ ...this.props.style  ,height: `${this.height}px` }}
       >
         <div id="STC-sticky-child">
           {this.renderChild()}
