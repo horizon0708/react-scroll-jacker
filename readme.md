@@ -1,7 +1,7 @@
 # React Scroll Jacker 
 React Scroll Jacker is a ruthless component that takes no ransom for his hijacked components. Rather, he hijacks scrolls for sweet tears of UX designers and users. Your hijacked scroll will only return after a set amount of pixel has been scrolled.
 
-The component lets you use scrolling to transition between elements for a set amount of pixels, instead of using scroll to scroll the page like a sane person. Under the hood, it takes React Children and shows them one by one, depending on the scrolled distance.
+Instead of using scroll to scroll the page like a sane person, this component lets you use scroll to transition between elements for a specified amount of pixels. Under the hood, it takes React Children and shows them one by one, depending on the scrolled distance.
 
 [Demo](https://scroller-jacker-demo.herokuapp.com/)
 
