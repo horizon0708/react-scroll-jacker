@@ -7,11 +7,11 @@ The component lets you use scrolling to transition between elements for a set am
 
 ## Usage
 
-1. Add Elements to to ```ReactScrollJacker```.
-2. set the height of ```ReactScrollerJacker``` to the sum of all its children.
+1. Add Elements to ```<ReactScrollJacker>```.
+2. set the height of ```<ReactScrollerJacker>``` to the sum of all its children.
 3. enjoy.
 
-```
+```javascript
 import React from "react";
 import ReactScrollJacker from 'react-scroll-jacker;
 
@@ -40,7 +40,7 @@ this sets the offset of the stickied element from the top of the viewbox.
 
 #### injectChildren *(optional)*
 This will inject the _React.Children_ with a prop({ currentPage: number }).
-```
+```javascript
   <ReactScrollJacker injectChildren height={1000}>
     <ReactElementOne> Help! </ReactElementOne>  // ReactElementOne will have get a prop  _currentPage_. 
     <ReactElementOne> I didn't ask for this! </ReactElementOne>
