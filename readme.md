@@ -13,13 +13,13 @@ The component lets you use scrolling to transition between elements for a set am
 
 ```javascript
 import React from "react";
-import ReactScrollJacker from 'react-scroll-jacker;
+import ReactScrollJacker from "react-scroll-jacker";
 
 const ScrollerJackerTest = props => {
   return <ReactScrollJacker height={2400}>  {/* <-- this should be the sum of all children's height! */}
       <ReactElement color="red"> Help! </ReactElement> 
       <ReactElement color="blue"> Our scroll has been hijacked! </ReactElement> 
-      <ReactElement color="purple"> Won't somebody please think of the UX ? </ReactElement>
+      <ReactElement color="purple"> Wont somebody please think of the UX ? </ReactElement>
       <ReactElement color="green"> UX?? Where we are going, we don't need UX. </ReactElement>
       
       {/* you can add any number of ReactElements in here !! */}
@@ -43,7 +43,7 @@ This will inject the _React.Children_ with a prop({ currentPage: number }).
 ```javascript
   <ReactScrollJacker injectChildren height={1000}>
     <ReactElementOne> Help! </ReactElementOne>  // ReactElementOne will have get a prop  _currentPage_. 
-    <ReactElementOne> I didn't ask for this! </ReactElementOne>
+    <ReactElementOne> I did not ask for this! </ReactElementOne>
   </ReactScrollJacker>
 ```
 
