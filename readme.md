@@ -5,10 +5,16 @@ Instead of using scroll to scroll the page like a sane person, this component le
 
 [Demo](https://scroller-jacker-demo.herokuapp.com/)
 
+## Installation
+
+```
+$ npm install --save react-scroll-jacker
+```
+
 ## Usage
 
 1. Add Elements to ```<ReactScrollJacker>```.
-2. Set the height of ```<ReactScrollerJacker>``` to the sum of all its children.
+2. Set the height of ```<ReactScrollJacker>``` to the sum of all its children.
 3. Enjoy.
 
 ```javascript
