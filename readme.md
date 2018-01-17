@@ -8,8 +8,8 @@ The component lets you use scrolling to transition between elements for a set am
 ## Usage
 
 1. Add Elements to ```<ReactScrollJacker>```.
-2. set the height of ```<ReactScrollerJacker>``` to the sum of all its children.
-3. enjoy.
+2. Set the height of ```<ReactScrollerJacker>``` to the sum of all its children.
+3. Enjoy.
 
 ```javascript
 import React from "react";
@@ -30,7 +30,7 @@ const ScrollerJackerTest = props => {
 ## Props
 
 #### height *(number: required )*
-**Recommended to be the total sum of all _React.Children_'s height for a smooth-scroll jacking experience**
+**Recommended to be the total sum of all _React.Children_'s height for a smooth scroll jacking experience.**
 This sets the total amount of pixel that needs to be scrolled before the hijacker lets your precious scroll go. 
 
 This is divided by the number of the React.Children elements and used to create boundaries between the elements. For example, let's say the height is 400 and there are 4 _React.Children_. From 0px to 99px, it will show the first child, 100px to 199px will show the second child and so on.
@@ -42,18 +42,20 @@ this sets the offset of the stickied element from the top of the viewbox.
 This will inject the _React.Children_ with a prop({ currentPage: number }).
 ```javascript
   <ReactScrollJacker injectChildren height={1000}>
-    <ReactElementOne> Help! </ReactElementOne>  // ReactElementOne will have get a prop  _currentPage_. 
+    <ReactElementOne> Help! </ReactElementOne>  
     <ReactElementOne> I did not ask for this! </ReactElementOne>
   </ReactScrollJacker>
+
+   // ReactElementOnes will have get a prop  _currentPage_. 
 ```
 
 This component is a regular div. _style_ and _className_ props are exposed. Style it however you wish.
 
 ## Todo
-- [] Add Tests.
+- [ ] Add Tests.
 - [x] Add Demo.
-- [] Add an option to pass down inject and not hide the children automatically.
-- [] apologise to the UX designers and users.
+- [ ] Add an option to pass down inject and not hide the children automatically.
+- [ ] apologise to the UX designers and users.
 
 
 
