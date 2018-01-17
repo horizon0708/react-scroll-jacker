@@ -17,7 +17,7 @@ export default class ScrollJacker extends React.Component<
   private container: HTMLElement;
 
   static defaultProps = {
-    scrollSensitivity: 5
+    scrollSensitivity: 7
   }
 
   componentDidMount() {

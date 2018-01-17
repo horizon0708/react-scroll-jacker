@@ -1,7 +1,9 @@
 # React Scroll Jacker 
-React Scroll Jacker is a ruthless component that takes no ransom for his hijacked components. Rather, he hijacks scrolls for sweet tears of UX designers and users. Your hijacked scroll will only return after a set amount of pixel has been scrolled.
+React Scroll Jacker is a component that makes your next scroll-hijacking easy! Instead of using scroll to scroll the page like a sane person, this component lets you use scroll to transition between React elements. Users` hijacked scrolls will return after they spin their mousewheels as many times as you have arbitrarily dictated.
+ 
+Now sit back and enjoy sweet tears of UX designers and users. 
 
-Instead of using scroll to scroll the page like a sane person, this component lets you use scroll to transition between elements for a specified amount of pixels. Under the hood, it takes React Children and shows them one by one, depending on the scrolled distance.
+
 
 [Demo](https://scroller-jacker-demo.herokuapp.com/)
 
@@ -13,12 +15,11 @@ $ npm install --save react-scroll-jacker
 
 ## Usage
 
-1. Add Elements to ```<ReactScrollJacker>```.
-2. Set the height of ```<ReactScrollJacker>``` to the sum of all its children.
-3. Enjoy.
+1. Add Elements to ```<ReactScrollJacker>``` as its children.
+2. (optional) set the scroll sensitivity
+3. Sit back and enjoy scroll-jacking.
 
 ```javascript
-import React from "react";
 import ReactScrollJacker from "react-scroll-jacker";
 
 const ScrollerJackerTest = props => {
@@ -32,19 +33,17 @@ const ScrollerJackerTest = props => {
     </ReactScrollJacker>
 };
 ```
+Elements show in the order they are added in.
 
 ## Props
 
-#### height *(number: required )*
-**Recommended to be the total sum of all _React.Children_'s height for a smooth scroll jacking experience.**
-This sets the total amount of pixel that needs to be scrolled before the hijacker lets your precious scroll go. 
+### scrollSensitivity _(number[1-9]: optional)_
+Decides how sensitive the scrolls are. Lower the number, more you have to scroll to transition to the next element. The default value is 7.
 
-This is divided by the number of the React.Children elements and used to create boundaries between the elements. For example, let's say the height is 400 and there are 4 _React.Children_. From 0px to 99px, it will show the first child, 100px to 199px will show the second child and so on.
-
-#### stickyOffset *(number: optional)*
+### stickyOffset *(number: optional)*
 this sets the offset of the stickied element from the top of the viewbox.
 
-#### injectChildren *(optional)*
+### injectChildren *(optional)*
 This will inject the _React.Children_ with a prop({ currentPage: number }).
 ```javascript
   <ReactScrollJacker injectChildren height={1000}>
@@ -52,13 +51,17 @@ This will inject the _React.Children_ with a prop({ currentPage: number }).
     <ReactElementOne> I did not ask for this! </ReactElementOne>
   </ReactScrollJacker>
 
-   // ReactElementOnes will have get a prop  _currentPage_. 
+   // Both ReactElementOnes will have get a prop currentPage that has the index of the current rendered child. 
 ```
 
 This component is a regular div. _style_ and _className_ props are exposed. Style it however you wish.
 
+## Under the hood
+This component uses [stickybits](https://github.com/dollarshaveclub/stickybits) to make child elements sticky. Stickybits uses css property sticky as a default and provides fallback via JS for browsers that are not supported. 
+
+
 ## Todo
-- [ ] Add Tests.
+- [ ] Add Tests & webpack.
 - [x] Add Demo.
 - [ ] Add an option to pass down inject and not hide the children automatically.
 - [ ] apologise to the UX designers and users.
