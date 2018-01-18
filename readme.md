@@ -63,6 +63,7 @@ This component uses [stickybits](https://github.com/dollarshaveclub/stickybits) 
 - [x] Add Demo.
 - [ ] Add an option to pass down inject and not hide the children automatically.
 - [ ] apologise to the UX designers and users.
+
 ## Patchnotes
 
 ### v0.1.5
