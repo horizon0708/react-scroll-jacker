@@ -74,7 +74,7 @@ export default class ScrollJacker extends React.Component<
     }
 
     const progress = Math.abs(this.container.getBoundingClientRect().top);
-    if (progress / this.increment > childrenCount - 1) {
+    if (progress / this.increment > childrenCount) {
       return 1;
     }
     const output = progress / this.increment - Math.floor(progress / this.increment);
