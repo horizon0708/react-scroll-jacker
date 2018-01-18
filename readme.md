@@ -3,8 +3,6 @@ React Scroll Jacker is a component that makes your next scroll-hijacking easy! I
  
 Now sit back and enjoy sweet tears of UX designers and users. 
 
-
-
 [Demo](https://scroller-jacker-demo.herokuapp.com/)
 
 ## Installation
@@ -44,7 +42,7 @@ Decides how sensitive the scrolls are. Lower the number, more you have to scroll
 this sets the offset of the stickied element from the top of the viewbox.
 
 ### injectChildren *(optional)*
-This will inject the _React.Children_ with props ```currentPage``` which returns the index of the currently rendered child and ```progress``` which returns a float between 0 and 1 representing the current progress to the next transition, 1 being 100%.
+This will inject the _React.Children_ with props ```currentPage``` which returns the index of the currently rendered child and ```progress``` which returns a float between 0 and 1 representing the current progress to the next transition, 1 being 100% (Enabling this calls ```setState``` every time you scroll, adding the icing that is bad performance to the frustration cake)
 
 ```javascript
   <ReactScrollJacker injectChildren height>
@@ -65,9 +63,8 @@ This component uses [stickybits](https://github.com/dollarshaveclub/stickybits) 
 - [x] Add Demo.
 - [ ] Add an option to pass down inject and not hide the children automatically.
 - [ ] apologise to the UX designers and users.
-
 ## Patchnotes
 
-###v0.1.5
+### v0.1.5
  - Now able to pass the progress to the next transition as a prop ```progress``` it returns a float between 0 and 1, 1 being 100%.
-  - This can be used to give some kind of visual feedback of progress to users and make scroll-jacking a bit more bearable.
+  - This can be used to give some kind of visual feedback of progress to users and make scroll-jacking a bit more bearable (but at the cost of performance :))
