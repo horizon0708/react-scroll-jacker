@@ -12,5 +12,6 @@ declare interface ScrollJackerProps {
 declare interface ScrollJackerState {
   childrenCount: number;
   currentPage: number;
+  currentProgress: number;
 }
 

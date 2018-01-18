@@ -44,9 +44,10 @@ Decides how sensitive the scrolls are. Lower the number, more you have to scroll
 this sets the offset of the stickied element from the top of the viewbox.
 
 ### injectChildren *(optional)*
-This will inject the _React.Children_ with a prop({ currentPage: number }).
+This will inject the _React.Children_ with props ```currentPage``` which returns the index of the currently rendered child and ```progress``` which returns a float between 0 and 1 representing the current progress to the next transition, 1 being 100%.
+
 ```javascript
-  <ReactScrollJacker injectChildren height={1000}>
+  <ReactScrollJacker injectChildren height>
     <ReactElementOne> Help! </ReactElementOne>  
     <ReactElementOne> I did not ask for this! </ReactElementOne>
   </ReactScrollJacker>
@@ -65,5 +66,8 @@ This component uses [stickybits](https://github.com/dollarshaveclub/stickybits) 
 - [ ] Add an option to pass down inject and not hide the children automatically.
 - [ ] apologise to the UX designers and users.
 
+## Patchnotes
 
-
+###v0.1.5
+ - Now able to pass the progress to the next transition as a prop ```progress``` it returns a float between 0 and 1, 1 being 100%.
+  - This can be used to give some kind of visual feedback of progress to users and make scroll-jacking a bit more bearable.

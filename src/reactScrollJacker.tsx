@@ -1,6 +1,5 @@
 import * as React from "react";
 import stickybits from "stickybits";
-
 export default class ScrollJacker extends React.Component<
   ScrollJackerProps,
   ScrollJackerState
@@ -9,7 +8,8 @@ export default class ScrollJacker extends React.Component<
     super(props);
     this.state = {
       childrenCount: 0,
-      currentPage: 0
+      currentPage: 0,
+      currentProgress: 0
     };
   }
   private increment: number = 200;
@@ -49,6 +49,8 @@ export default class ScrollJacker extends React.Component<
     if (this.state.currentPage !== this.getCurrentPage()) {
       this.setState({ currentPage: this.getCurrentPage() });
     }
+    this.setState({currentProgress: this.getProgress()})
+    
   };
 
   getCurrentPage(): number {
@@ -65,13 +67,24 @@ export default class ScrollJacker extends React.Component<
     return output;
   }
 
+  getProgress(): number {
+    const { childrenCount } = this.state;
+    if (childrenCount < 2 || this.container.getBoundingClientRect().top > 0) {
+      return 0;
+    }
+    const progress = Math.abs(this.container.getBoundingClientRect().top);
+    const output = progress / this.increment - Math.floor(progress / this.increment);
+    return output;
+  }
+
   //https://stackoverflow.com/questions/42261783/how-to-assign-the-correct-typing-to-react-cloneelement-when-giving-properties-to
   injectedChildren(): React.ReactChild[] {
     const { children } = this.props;
     return React.Children.map(children, x => {
       if (React.isValidElement(x as React.ReactElement<any>)) {
         return React.cloneElement(x as React.ReactElement<any>, {
-          currentPage: this.getCurrentPage()
+          currentPage: this.getCurrentPage(),
+          progress: this.getProgress()
         });
       }
       return x;
