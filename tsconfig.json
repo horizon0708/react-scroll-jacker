@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "outDir": "./lib",
-    "module": "esnext",
     "target": "es5",
     "moduleResolution": "node",
     "noImplicitReturns": true,
