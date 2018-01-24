@@ -1,5 +1,5 @@
 import * as React from "react";
-import stickybits from "stickybits";
+import * as stickybits from "stickybits";
 export default class ScrollJacker extends React.Component<
   ScrollJackerProps,
   ScrollJackerState
