@@ -10,13 +10,13 @@ export default class ScrollJacker extends React.Component {
       currentProgress: 0
     };
   }
-  increment = 200;
-  height = 500;
-  container;
+  // increment = 200;
+  // height = 500;
+  // container;
 
-  static defaultProps = {
-    scrollSensitivity: 7
-  }
+  // static defaultProps = {
+  //   scrollSensitivity: 7
+  // }
 
   componentDidMount() {
     let { children, stickyOffset, scrollSensitivity } = this.props;
