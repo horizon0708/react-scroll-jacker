@@ -1,6 +1,6 @@
 {
   "name": "react-scroll-jacker",
-  "version": "1.8.3",
+  "version": "1.8.2",
   "description": "ruthless scroll jacking component that takes no ransom. The component makes scrolling certain distance have the effect of changing a page (instead of.. scrolling the page). Under the hood, it takes React Children and shows them one by one, depending on the scrolled distance. ",
   "main": "./lib/reactScrollJacker.js",
   "types": "./lib/reactScrollJacker.d.ts",
