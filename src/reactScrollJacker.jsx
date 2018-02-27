@@ -1,10 +1,8 @@
-import * as React from "react";
-import * as stickybits from "stickybits";
-export default class ScrollJacker extends React.Component<
-  ScrollJackerProps,
-  ScrollJackerState
-> {
-  constructor(props: ScrollJackerProps) {
+import React from "react";
+import stickybits from "stickybits";
+
+export default class ScrollJacker extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       childrenCount: 0,
@@ -12,9 +10,9 @@ export default class ScrollJacker extends React.Component<
       currentProgress: 0
     };
   }
-  private increment: number = 200;
-  private height: number = 500;
-  private container: HTMLElement;
+  increment = 200;
+  height = 500;
+  container;
 
   static defaultProps = {
     scrollSensitivity: 7
@@ -53,7 +51,7 @@ export default class ScrollJacker extends React.Component<
     
   };
 
-  getCurrentPage(): number {
+  getCurrentPage() {
     const { childrenCount } = this.state;
     if (childrenCount < 2 || this.container.getBoundingClientRect().top > 0) {
       return 0;
@@ -67,7 +65,7 @@ export default class ScrollJacker extends React.Component<
     return output;
   }
 
-  getProgress(): number {
+  getProgress() {
     const { childrenCount } = this.state;
     if (childrenCount < 2 || this.container.getBoundingClientRect().top > 0) {
       return 0;
@@ -82,11 +80,11 @@ export default class ScrollJacker extends React.Component<
   }
 
   //https://stackoverflow.com/questions/42261783/how-to-assign-the-correct-typing-to-react-cloneelement-when-giving-properties-to
-  injectedChildren(): React.ReactChild[] {
+  injectedChildren() {
     const { children } = this.props;
     return React.Children.map(children, x => {
-      if (React.isValidElement(x as React.ReactElement<any>)) {
-        return React.cloneElement(x as React.ReactElement<any>, {
+      if (React.isValidElement(x)) {
+        return React.cloneElement(x, {
           currentPage: this.getCurrentPage(),
           progress: this.getProgress()
         });
@@ -95,7 +93,7 @@ export default class ScrollJacker extends React.Component<
     });
   }
 
-  renderChild(): React.ReactChild {
+  renderChild() {
     const { injectChildren, children } = this.props;
     const { currentPage } = this.state;
     return injectChildren
