@@ -1,3 +1,5 @@
+This is meant to be a tongue-in-cheek react component. I am not maintaining this currently and I do not recommend usage except for fun :p
+
 # React Scroll Jacker 
 React Scroll Jacker is a component that makes your next scroll-hijacking easy! Instead of using scroll to scroll the page like a sane person, this component lets you use scroll to transition between React elements. Users` hijacked scrolls will return after they spin their mousewheels as many times as you have arbitrarily dictated.
  
