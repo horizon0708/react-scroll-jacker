@@ -58,7 +58,7 @@ This will inject the _React.Children_ with props ```currentPage``` which returns
 This component is a regular div. _style_ and _className_ props are exposed. Style it however you wish.
 
 ## Under the hood
-This component uses [stickybits](https://github.com/dollarshaveclub/stickybits) to make child elements sticky. Stickybits uses css property sticky as a default and provides fallback via JS for browsers that are not supported. 
+This component uses [stickybits](https://github.com/yowainwright/stickybits) to make child elements sticky. Stickybits uses css property sticky as a default and provides fallback via JS for browsers that are not supported. 
 
 ## Todo
 - [ ] Add Tests & webpack.
